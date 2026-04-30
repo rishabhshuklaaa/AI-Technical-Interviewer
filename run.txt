@@ -1,4 +1,5 @@
 To Run the project 
 1. cd Frontend and on terminal write npm run dev
 2. Open another terminal cd Backend write npm run dev
-3. Open another i.e 3rd terminal cd ai_services activate virtual environment ./venv/Scripts/activate and then write uvicorn main:app --reload
+3. Open another i.e 3rd terminal cd ai_services activate virtual environment ./venv/Scripts/activate and then
+write uvicorn main:app --reload
