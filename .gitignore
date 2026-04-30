@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+venv/
+
+# python
+__pycache__/
+*.pyc
+
+# env files
+.env
+
+# uploads (optional)
+uploads/
+
+# logs
+*.log
