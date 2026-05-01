@@ -6,7 +6,7 @@ import {
     getSessionById, 
     getSessions, 
     submitAnswer
-} from "../controllers/sessionController.js";
+} from "../Controllers/sessionController.js";
 import { protect } from "../middleware/authMiddleware.js";
 import { uploadSingleAudio } from "../middleware/uploadMiddleware.js";
 
