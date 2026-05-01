@@ -16,7 +16,9 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 
-const allowedOrigin = ['http://localhost:5174', 'http://localhost:5173'];
+const allowedOrigin = ['http://localhost:5174', 
+                       'http://localhost:5173',
+                       process.env.FRONTEND_URL].filter(Boolean); // Filter out undefined values
 
 const io = new Server(server, {
     cors: {
