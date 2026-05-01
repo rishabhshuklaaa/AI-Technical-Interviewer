@@ -189,4 +189,5 @@ async def evaluate(request: EvaluationRequest):
         return EvaluationResponse(technicalScore=0, confidenceScore=0, aiFeedback="Evaluation error", idealAnswer="N/A")
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=AI_SERVICE_PORT)
+    port = int(os.environ.get("PORT", 8000)) 
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
