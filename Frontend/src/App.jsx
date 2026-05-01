@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import useSocket from './hooks/useSocket';
 import { ToastContainer } from 'react-toastify';
@@ -14,6 +14,27 @@ import NotFound from './pages/NotFound';
 
 const App = () => {
   useSocket();
+
+  // 2. Wake-up Logic implement karo
+  useEffect(() => {
+    const wakeUp = async () => {
+      const backendUrl = "https://ai-interviewer-backend-ptp0.onrender.com/";
+      const aiServiceUrl = "https://ai-technical-interviewer-services.onrender.com/";
+      
+      try {
+        console.log("Initiating background wake-up for Render services...");
+        // 'no-cors' use kar rahe hain taaki opaque response mile aur error na aaye
+        await Promise.all([
+          fetch(backendUrl, { mode: 'no-cors' }),
+          fetch(aiServiceUrl, { mode: 'no-cors' })
+        ]);
+      } catch (err) {
+        console.log("Ping sent, services spinning up...");
+      }
+    };
+
+    wakeUp();
+  }, []);
   return (
     <div className='min-h-screen bg-[#050509] w-full overflow-x-hidden'>
       <Header />
