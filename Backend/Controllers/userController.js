@@ -14,8 +14,8 @@ const sendToken = (user, statusCode, res) => {
     const cookieOptions = {
         expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 Day
         httpOnly: true, // XSS protection
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
+        secure: 'true',
+        sameSite: 'none',
     };
 
     res.status(statusCode).cookie('jwt', token, cookieOptions).json({
