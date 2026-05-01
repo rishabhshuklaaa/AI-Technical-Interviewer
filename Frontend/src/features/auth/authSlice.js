@@ -19,7 +19,7 @@ const initialState={
 // Async thunk for user registration
 export const register=createAsyncThunk('auth/register',async(userData,thunkAPI)=>{
     try {
-        const response =await axios.post(`${API_URL}register`,userData);
+        const response =await axios.post(`${API_URL}register`,userData, { withCredentials: true });
         if(response.data){
             localStorage.setItem('user',JSON.stringify(response.data))
         }
@@ -33,7 +33,7 @@ export const register=createAsyncThunk('auth/register',async(userData,thunkAPI)=
 // Async thunk for user login
 export const login=createAsyncThunk('auth/login',async(userData,thunkAPI)=>{
     try {
-        const response =await axios.post(`${API_URL}login`,userData);
+        const response =await axios.post(`${API_URL}login`,userData, { withCredentials: true });
         if(response.data){
             localStorage.setItem('user',JSON.stringify(response.data))
         }
@@ -47,7 +47,7 @@ export const login=createAsyncThunk('auth/login',async(userData,thunkAPI)=>{
 // Async thunk for Google OAuth login
 export const googleLogin=createAsyncThunk('auth/googleLogin',async(token,thunkAPI)=>{
     try {
-        const response =await axios.post(`${API_URL}google`,{token});
+        const response =await axios.post(`${API_URL}google`,{token}, { withCredentials: true });
         if(response.data){
             localStorage.setItem('user',JSON.stringify(response.data))
         }
@@ -69,7 +69,8 @@ export const updateProfile=createAsyncThunk('auth/update',async(userData,thunkAP
        const config={
            headers:{
                Authorization:`Bearer ${token}`
-           }
+           },
+              withCredentials: true
        }
        const response=await axios.put(`${API_URL}profile`,userData,config);
        return response.data;
