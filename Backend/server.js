@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser"; // 1. Import cookie-parser
 import { Server } from "socket.io";
-import connectDB from "./config/db.js";
+import connectDB from "./Config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import sessionRoutes from "./routes/sessionRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
