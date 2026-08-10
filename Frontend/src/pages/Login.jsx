@@ -51,112 +51,154 @@ const Login = () => {
 
   if (isLoading) {
     return (
-      <div className='flex justify-center items-center h-screen bg-[#020617]'>
-        <div className='h-12 w-12 rounded-full border-t-4 border-indigo-500 animate-spin'></div>
+      <div className='flex justify-center items-center h-screen bg-[#090d16]'>
+        <div className='h-10 w-10 rounded-full border-2 border-indigo-500/30 border-t-indigo-500 animate-spin'></div>
       </div>
     )
   }
 
   return (
-    // Fixed: pt-28 ensures it starts below the fixed header. min-h-screen for safe scaling.
-    <div className="min-h-screen w-full flex items-center justify-center no-scrollbar relative overflow-hidden font-sans px-4 pt-16 pb-10">
+    <div className="h-screen w-full bg-[#090d16] text-slate-100 font-sans flex items-center justify-center px-8 pt-16 overflow-hidden relative">
       
-      {/* 🌌 Background Layer - Stays Fixed */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{ 
-          backgroundImage: `url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?q=80&w=2070&auto=format&fit=crop')`, 
-        }}
-      >
-        <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-[2px]"></div>
-      </div>
+      {/* Subtle Background Radial Glow */}
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none"></div>
 
-      {/* 🎭 Compact Glass Card */}
-      <div className='w-full max-w-[420px] relative z-10'>
-        <div className='bg-slate-900/60 backdrop-blur-[35px] border border-white/10 p-7 sm:p-9 rounded-[2.5rem] shadow-2xl'>
-          
-          {/* Header Area */}
-          <div className='text-center mb-6'>
-            <div className='flex justify-center mb-3'>
-              <div className='h-8 w-8 rounded-full border border-white/20 flex items-center justify-center bg-white/5'>
-                 <div className='h-1 w-1 bg-white rounded-full animate-pulse shadow-[0_0_8px_white]'></div>
-              </div>
-            </div>
-            <h1 className='text-3xl font-bold text-white tracking-tight leading-none'>
-              Welcome back
+      {/* Main Container */}
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+        
+        {/* LEFT SIDE: Larger & Impactful Text */}
+        <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
+          <div>
+            <span className="text-indigo-400 font-bold text-sm tracking-widest uppercase block mb-3">
+              AI Interview Coach
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight leading-tight mb-4">
+              Prepare Smarter. <br />
+              <span className="text-indigo-400">Interview Better.</span>
             </h1>
-            <p className='text-white/40 text-[10px] mt-2 uppercase tracking-[0.2em] font-black'>
-              Sign in to Practise
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+              Practice real interview questions, improve your answers, and get instant AI-powered feedback.
             </p>
           </div>
 
-          {/* Form Area */}
-          <form onSubmit={onSubmit} className='space-y-4'>
-            <div className='space-y-1.5'>
-              <label className='text-[10px] font-black uppercase text-white/30 ml-2 tracking-widest'>Email</label>
+          {/* Feature Bullet Points */}
+          <div className="space-y-3.5 pt-2">
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Practice Real Interviews</h4>
+                <p className="text-xs text-slate-400">Simulate technical interviews with coding and spoken questions.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Speak Your Answers Naturally</h4>
+                <p className="text-xs text-slate-400">Answer using your voice and get AI-based evaluation.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Get Instant Feedback</h4>
+                <p className="text-xs text-slate-400">Understand your strengths, mistakes, and areas to improve.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Improve Your Interview Performance</h4>
+                <p className="text-xs text-slate-400">Receive detailed reports with scores and personalized suggestions.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Experience a Real Interview Environment</h4>
+                <p className="text-xs text-slate-400">Smart monitoring helps create a fair and realistic practice session.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE: Compact Auth Card */}
+        <div className="lg:col-span-5 w-full max-w-sm mx-auto bg-[#111622] border border-slate-800 p-7 rounded-2xl shadow-xl">
+          
+          <div className='text-center mb-5'>
+            <h2 className='text-xl font-semibold text-slate-100 tracking-tight'>
+              Welcome Back
+            </h2>
+            <p className='text-slate-400 text-xs mt-1'>
+              Sign in to start practicing
+            </p>
+          </div>
+
+          <form onSubmit={onSubmit} className='space-y-3.5'>
+            <div className='space-y-1'>
+              <label className='text-xs text-slate-300 font-medium ml-0.5'>Email</label>
               <input 
                 type="email" 
                 name="email" 
                 value={email} 
                 onChange={onChange}
-                className='w-full p-3.5 bg-white/5 border border-white/10 text-white text-sm rounded-2xl focus:ring-1 focus:ring-teal-500/50 outline-none transition-all placeholder:text-white/10' 
-                placeholder='Enter email' 
+                className='w-full px-3.5 py-2.5 bg-[#090d16] border border-slate-800 text-slate-200 text-xs rounded-xl focus:border-indigo-500 outline-none transition-colors placeholder:text-slate-600' 
+                placeholder='Enter your email' 
                 required 
               />
             </div>
 
-            <div className='space-y-1.5'>
-              <div className='flex justify-between items-center px-2'>
-                <label className='text-[10px] font-black uppercase text-white/30 tracking-widest'>Password</label>
-                <Link to="#" className="text-[9px] text-white/30 hover:text-white uppercase font-bold tracking-tighter transition-colors">Forgot?</Link>
+            <div className='space-y-1'>
+              <div className='flex justify-between items-center px-0.5'>
+                <label className='text-xs text-slate-300 font-medium'>Password</label>
+                <Link to="#" className="text-[11px] text-slate-400 hover:text-indigo-400 transition-colors">Forgot?</Link>
               </div>
               <input 
                 type="password" 
                 name="password" 
                 value={password} 
                 onChange={onChange}
-                className='w-full p-3.5 bg-white/5 border border-white/10 text-white text-sm rounded-2xl focus:ring-1 focus:ring-teal-500/50 outline-none transition-all placeholder:text-white/10' 
-                placeholder='••••' 
+                className='w-full px-3.5 py-2.5 bg-[#090d16] border border-slate-800 text-slate-200 text-xs rounded-xl focus:border-indigo-500 outline-none transition-colors placeholder:text-slate-600' 
+                placeholder='••••••••' 
                 required 
               />
             </div>
 
             <button 
               type="submit" 
-              className='w-full py-4 bg-white text-black rounded-full font-black text-[11px] uppercase tracking-[0.2em] hover:bg-teal-400 hover:text-white transition-all duration-300 active:scale-[0.98] mt-2 shadow-lg'
+              className='w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium text-xs transition-colors duration-200 mt-1 shadow-sm'
             >
-              Authorize
+              Sign In
             </button>
           </form>
 
-          {/* Social Divider */}
-          <div className="my-6 flex items-center">
-            <div className="flex-grow border-t border-white/5"></div>
-            <span className="mx-3 text-white/10 text-[9px] font-bold uppercase tracking-widest whitespace-nowrap">Secure Login</span>
-            <div className="flex-grow border-t border-white/5"></div>
+          <div className="my-4 flex items-center">
+            <div className="flex-grow border-t border-slate-800"></div>
+            <span className="mx-3 text-slate-500 text-[10px] uppercase tracking-wider font-medium">OR</span>
+            <div className="flex-grow border-t border-slate-800"></div>
           </div>
 
-          {/* Google Auth - Optimized Height */}
-          <div className="w-full flex justify-center transform scale-95 origin-center">
-            <div className='w-full opacity-90 hover:opacity-100 transition-opacity'>
-                <GoogleLogin
-                  onSuccess={handleGoogleSuccess}
-                  onError={() => toast.error('Google login failed')}
-                  theme="filled_blue"
-                  size="large"
-                  width="380" // Specific width for compactness
-                  shape="pill"
-                />
-            </div>
+          <div className="w-full flex justify-center">
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={() => toast.error('Google login failed')}
+              theme="filled_blue"
+              size="medium"
+              shape="pill"
+            />
           </div>
 
-          {/* Footer Link */}
-          <div className="mt-7 text-center">
-            <p className="text-white/30 text-[10px] font-bold uppercase tracking-widest">
-              New here? <Link to="/register" className="text-white border-b border-white/20 hover:text-teal-400 hover:border-teal-400 transition-all ml-1">Register Account</Link>
+          <div className="mt-5 text-center">
+            <p className="text-slate-400 text-xs">
+              Don't have an account? <Link to="/register" className="text-indigo-400 font-medium hover:underline ml-1">Register</Link>
             </p>
           </div>
+
         </div>
+
       </div>
     </div>
   )

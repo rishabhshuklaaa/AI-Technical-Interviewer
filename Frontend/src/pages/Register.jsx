@@ -52,99 +52,165 @@ const Register = () => {
 
   if (isLoading) {
     return (
-      <div className='flex justify-center items-center h-screen bg-[#020617]'>
-        <div className='h-12 w-12 rounded-full border-t-4 border-indigo-500 animate-spin'></div>
+      <div className='flex justify-center items-center h-screen bg-[#090d16]'>
+        <div className='h-10 w-10 rounded-full border-2 border-indigo-500/30 border-t-indigo-500 animate-spin'></div>
       </div>
     )
   }
 
   return (
-    // 'no-scrollbar' class added here to hide scroller
-    <div className="h-screen w-full flex items-center justify-center relative overflow-y-auto no-scrollbar font-sans pt-20 pb-10 px-4">
+    <div className="h-screen w-full bg-[#090d16] text-slate-100 font-sans flex items-center justify-center px-8 pt-16 overflow-hidden relative">
       
-      {/* 🌌 Fixed Background Layer - Same as Login */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{ 
-          backgroundImage: `url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?q=80&w=2070&auto=format&fit=crop')`, 
-        }}
-      >
-        <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-[2px]"></div>
-      </div>
+      {/* Subtle Background Radial Glow */}
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none"></div>
 
-      {/* 🎭 Compact Glass Card - Color Synced to Login */}
-      <div className='w-full max-w-[480px] relative z-10'>
-        <div className='bg-slate-900/60 backdrop-blur-[35px] border border-white/10 p-7 sm:p-9 rounded-[2.5rem] shadow-2xl'>
-          
-          <div className='text-center mb-5'>
-            <div className='flex justify-center mb-3'>
-               <div className='h-8 w-8 rounded-full border border-white/20 flex items-center justify-center bg-white/5'>
-                 <div className='h-1 w-1 bg-white rounded-full animate-pulse shadow-[0_0_8px_white]'></div>
-               </div>
-            </div>
-            <h1 className='text-3xl font-bold text-white tracking-tight leading-none'>
-              Get Started
+      {/* Main Container Grid */}
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+        
+        {/* LEFT SIDE: Matching Clean Text Section */}
+        <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
+          <div>
+            <span className="text-indigo-400 font-bold text-sm tracking-widest uppercase block mb-3">
+              AI Interview Coach
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight leading-tight mb-4">
+              Prepare Smarter. <br />
+              <span className="text-indigo-400">Interview Better.</span>
             </h1>
-            <p className='text-white/40 text-[10px] mt-2 font-black uppercase tracking-[0.2em]'>
-              Join the elite tech community
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+              Practice real interview questions, improve your answers, and get instant AI-powered feedback.
             </p>
           </div>
 
-          <form onSubmit={onSubmit} className='space-y-3.5'>
+          {/* Feature Bullet Points */}
+          <div className="space-y-3.5 pt-2">
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Practice Real Interviews</h4>
+                <p className="text-xs text-slate-400">Simulate technical interviews with coding and spoken questions.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Speak Your Answers Naturally</h4>
+                <p className="text-xs text-slate-400">Answer using your voice and get AI-based evaluation.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Get Instant Feedback</h4>
+                <p className="text-xs text-slate-400">Understand your strengths, mistakes, and areas to improve.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Improve Your Interview Performance</h4>
+                <p className="text-xs text-slate-400">Receive detailed reports with scores and personalized suggestions.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <span className="text-indigo-400 font-bold text-base mt-0.5">✓</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-100">Experience a Real Interview Environment</h4>
+                <p className="text-xs text-slate-400">Smart monitoring helps create a fair and realistic practice session.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE: Compact Register Card */}
+        <div className="lg:col-span-5 w-full max-w-sm mx-auto bg-[#111622] border border-slate-800 p-7 rounded-2xl shadow-xl">
+          
+          <div className='text-center mb-5'>
+            <h2 className='text-xl font-semibold text-slate-100 tracking-tight'>
+              Create Account
+            </h2>
+            <p className='text-slate-400 text-xs mt-1'>
+              Start your interview practice today
+            </p>
+          </div>
+
+          <form onSubmit={onSubmit} className='space-y-3'>
             <div className='space-y-1'>
-              <label className='text-[10px] font-black text-white/30 ml-2 uppercase tracking-widest'>Full Name</label>
+              <label className='text-xs text-slate-300 font-medium ml-0.5'>Full Name</label>
               <input 
-                type="text" name="name" value={name} onChange={onChange}
-                className='w-full p-3.5 bg-white/5 border border-white/10 text-white text-sm rounded-2xl focus:ring-1 focus:ring-teal-500/50 outline-none transition-all placeholder:text-white/10' 
-                placeholder='Rishabh Shukla' required 
+                type="text" 
+                name="name" 
+                value={name} 
+                onChange={onChange}
+                className='w-full px-3.5 py-2.5 bg-[#090d16] border border-slate-800 text-slate-200 text-xs rounded-xl focus:border-indigo-500 outline-none transition-colors placeholder:text-slate-600' 
+                placeholder='Enter your full name' 
+                required 
               />
             </div>
 
             <div className='space-y-1'>
-              <label className='text-[10px] font-black text-white/30 ml-2 uppercase tracking-widest'>Email</label>
+              <label className='text-xs text-slate-300 font-medium ml-0.5'>Email</label>
               <input 
-                type="email" name="email" value={email} onChange={onChange}
-                className='w-full p-3.5 bg-white/5 border border-white/10 text-white text-sm rounded-2xl focus:ring-1 focus:ring-teal-500/50 outline-none transition-all placeholder:text-white/10' 
-                placeholder='user@gmail.com' required 
+                type="email" 
+                name="email" 
+                value={email} 
+                onChange={onChange}
+                className='w-full px-3.5 py-2.5 bg-[#090d16] border border-slate-800 text-slate-200 text-xs rounded-xl focus:border-indigo-500 outline-none transition-colors placeholder:text-slate-600' 
+                placeholder='user@example.com' 
+                required 
               />
             </div>
 
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+            <div className='grid grid-cols-2 gap-2.5'>
               <div className='space-y-1'>
-                <label className='text-[10px] font-black text-white/30 ml-2 uppercase tracking-widest'>Password</label>
+                <label className='text-xs text-slate-300 font-medium ml-0.5'>Password</label>
                 <input 
-                  type="password" name="password" value={password} onChange={onChange}
-                  className='w-full p-3.5 bg-white/5 border border-white/10 text-white text-sm rounded-2xl focus:ring-1 focus:ring-teal-500/50 outline-none transition-all placeholder:text-white/10' 
-                  placeholder='••••' required 
+                  type="password" 
+                  name="password" 
+                  value={password} 
+                  onChange={onChange}
+                  className='w-full px-3.5 py-2.5 bg-[#090d16] border border-slate-800 text-slate-200 text-xs rounded-xl focus:border-indigo-500 outline-none transition-colors placeholder:text-slate-600' 
+                  placeholder='••••••••' 
+                  required 
                 />
               </div>
               <div className='space-y-1'>
-                <label className='text-[10px] font-black text-white/30 ml-2 uppercase tracking-widest'>Confirm</label>
+                <label className='text-xs text-slate-300 font-medium ml-0.5'>Confirm</label>
                 <input 
-                  type="password" name="password2" value={password2} onChange={onChange}
-                  className='w-full p-3.5 bg-white/5 border border-white/10 text-white text-sm rounded-2xl focus:ring-1 focus:ring-teal-500/50 outline-none transition-all placeholder:text-white/10' 
-                  placeholder='••••' required 
+                  type="password" 
+                  name="password2" 
+                  value={password2} 
+                  onChange={onChange}
+                  className='w-full px-3.5 py-2.5 bg-[#090d16] border border-slate-800 text-slate-200 text-xs rounded-xl focus:border-indigo-500 outline-none transition-colors placeholder:text-slate-600' 
+                  placeholder='••••••••' 
+                  required 
                 />
               </div>
             </div>
 
             <button 
               type="submit" 
-              className='w-full py-4 bg-white text-black rounded-full font-black text-[11px] uppercase tracking-[0.2em] hover:bg-teal-400 hover:text-white transition-all active:scale-[0.98] mt-4 shadow-xl'
+              className='w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium text-xs transition-colors duration-200 mt-2 shadow-sm'
             >
-              Establish Identity
+              Get Started
             </button>
           </form>
 
-          <div className="mt-6 text-center">
-            <p className="text-white/30 text-[10px] font-bold uppercase tracking-widest">
-              Existing user? {' '}
-              <Link to="/login" className="text-white border-b border-white/20 hover:text-teal-400 hover:border-teal-400 transition-all ml-1">
+          <div className="mt-5 text-center">
+            <p className="text-slate-400 text-xs">
+              Already have an account? {' '}
+              <Link to="/login" className="text-indigo-400 font-medium hover:underline ml-1">
                 Sign In
               </Link>
             </p>
           </div>
+
         </div>
+
       </div>
     </div>
   )
